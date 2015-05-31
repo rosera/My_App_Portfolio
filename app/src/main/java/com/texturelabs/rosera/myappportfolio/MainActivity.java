@@ -54,59 +54,65 @@ public class MainActivity extends ActionBarActivity {
      */
     public void sendBtnSpotifyStreamer(View view) {
         // Respond to btn click
-        Context context = getApplicationContext();
-        CharSequence message = "This button will launch my Spotify Streamer app!";
+        CharSequence message = getString(R.string.spotify_streamer);
         int duration = Toast.LENGTH_SHORT;
 
-        Toast toast = Toast.makeText(context, message, duration);
-        toast.show();
+        // Refactor repeating code
+        displayToast(message, duration);
     }
 
     public void sendBtnScoresApp(View view) {
         // Respond to btn click
-        Context context = getApplicationContext();
-        CharSequence message = "This button will launch my scores app!";
+        CharSequence message = getString(R.string.scores_app);
         int duration = Toast.LENGTH_SHORT;
 
-        Toast toast = Toast.makeText(context, message, duration);
-        toast.show();
+        // Refactor repeating code
+        displayToast(message, duration);
     }
 
     public void sendBtnLibraryApp(View view) {
         // Respond to btn click
-        Context context = getApplicationContext();
-        CharSequence message = "This button will launch my library app!";
+        CharSequence message = getString(R.string.library_app);
         int duration = Toast.LENGTH_SHORT;
 
-        Toast toast = Toast.makeText(context, message, duration);
-        toast.show();
+        // Refactor repeating code
+        displayToast(message, duration);
     }
 
     public void sendBtnBuildItBigger(View view) {
         // Respond to btn click
-        Context context = getApplicationContext();
-        CharSequence message = "This button will launch my build it bigger app!";
+        CharSequence message = getString(R.string.build_it_bigger);
         int duration = Toast.LENGTH_SHORT;
 
-        Toast toast = Toast.makeText(context, message, duration);
-        toast.show();
+        // Refactor repeating code
+        displayToast(message, duration);
     }
 
     public void sendBtnXYZReader(View view) {
         // Respond to btn click
-        Context context = getApplicationContext();
-        CharSequence message = "This button will launch my XYZ reader app!";
+        CharSequence message = getString(R.string.xyz_reader);
         int duration = Toast.LENGTH_SHORT;
 
-        Toast toast = Toast.makeText(context, message, duration);
-        toast.show();
+        // Refactor repeating code
+        displayToast(message, duration);
     }
 
     public void sendBtnCapstone(View view) {
         // Respond to btn click
-        Context context = getApplicationContext();
-        CharSequence message = "This button will launch my capstone app!";
+        CharSequence message = getString(R.string.capstone);
         int duration = Toast.LENGTH_SHORT;
+
+        // Refactor repeating code
+        displayToast(message, duration);
+    }
+
+    /*
+    Code review:
+    You an reuse the toast showing method. You wrote the same logic 6 times.
+    Refactor such logic into a single method that receives the toast's text and duration.
+     */
+    private void displayToast(CharSequence message, int duration) {
+        Context context = getApplicationContext();
 
         Toast toast = Toast.makeText(context, message, duration);
         toast.show();
